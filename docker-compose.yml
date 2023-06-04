@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  mysql:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+      - "./oopse.sql:/docker-entrypoint-initdb.d/1.sql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=db
